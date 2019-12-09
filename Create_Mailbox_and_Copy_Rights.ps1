@@ -2,8 +2,8 @@
 
 write-output "Create a user on Exchange and make a sync with AD "
 
-$srcPname = Read-Host "Please Enter a Email (ex: leandros@paradox.com) "
-$srcAlias = Read-Host "Please Enter a Login name ( ex: leandros ) "
+$srcPname = Read-Host "Please Enter a Email (ex: xxxx@xxxx.com) "
+$srcAlias = Read-Host "Please Enter a Login name ( ex: leans ) "
 $srcName = Read-Host "Please Enter a Full Name ( ex: Leandro Scardua ) " 
 $srcFname = Read-Host "Please Enter a First name ( ex: Leandro )  " 
 $srcLname = Read-Host "Please Enter a Last name  ( ex: Scardua ) " 
@@ -17,8 +17,8 @@ write-output "This script allows to copy a user's group and copy it to other use
 
 write-output ""
  
-$srcUser = Read-Host "Please Enter the login of the source user (ex: leandros ) " 
-$destUser = Read-Host "Please Enter the login of the Destination user (ex: leandros)  " 
+$srcUser = Read-Host "Please Enter the login of the source user (ex: leand ) " 
+$destUser = Read-Host "Please Enter the login of the Destination user (ex: leand)  " 
 
 foreach ($group in (Get-ADUser -Identity $srcUser -Properties MemberOf).MemberOf) {   Add-ADGroupMember -Identity $group -Members $destUser; }
 
